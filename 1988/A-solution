@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+typedef long long  ll;
+using namespace std;
+int main()
+{
+    ll t,n,k;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>k;
+        if(n==1){
+            cout<<"0\n";
+            continue;
+        }else if(n<=k){
+            cout<<"1\n";
+         }else if(k==2){
+              ll m =  n/(k-1);
+            cout<<(m)-1<<endl;
+        }else{
+            ll m =  n/(k-1);
+           ll dif = n-(m*(k-1));
+           if(dif>1){
+              cout<<m+1<<endl;
+           }else{
+              cout<<m<<endl;
+           }
+        }
+    }
+
+
+    return 0;
+}
