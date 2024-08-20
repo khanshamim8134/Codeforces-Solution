@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie();
+    ll t,L,R,l,r;
+    cin>>t;
+    while(t--)
+    {
+        cin>>L>>R>>l>>r;
+        ll c = min(R,r)-max(L,l);
+        ll ans=c;
+        if(c<0)
+        {
+            ans = 1;
+        }else if(c==0){
+          ans = 2;
+        }
+        else
+        {
+            if(L!=l)ans++;
+            if(R!=r)ans++;
+        }
+        cout<<ans<<endl;
+    }
+
+    return 0;
+}
+
