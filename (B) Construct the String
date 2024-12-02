@@ -1,0 +1,76 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie();
+    ll t;
+    cin>>t;
+    char s[]="abcdefghijklmnopqrstuvwxyz";
+    while(t--)
+    {
+        ll a,b,n,k;
+        string str;
+        cin>>n>>a>>b;
+        if(b==1)
+        {
+            k=0;
+            for(ll i=0; i<n; i++)
+            {
+                str+=s[k];
+                if(k>25)
+                {
+                    k=0;
+                }
+            }
+            cout<<str<<endl;
+            continue;
+        }
+        ll res = n/a;
+        ll r = n%a;
+        while(res--)
+        {
+            for(ll i=0; i<b; i++)
+            {
+                str+=s[i];
+            }
+            ll k=b-1;
+            for(ll i=b; i<a; i++)
+            {
+                str+=s[k];
+                k--;
+                if(k<0){
+                        k=b-1;
+                }
+            }
+        }
+        k=0;
+        if(a==1)
+        {
+            k=1;
+        }
+            for(ll i=0; i<r; i++)
+            {
+                str+=s[k];k++;
+                if(k>=b){
+                       k=0;
+                }
+            }
+        cout<<str<<endl;
+
+    }
+
+    return 0;
+}
+
