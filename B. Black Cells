@@ -1,0 +1,68 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+int main()
+{
+    //ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    llu t,n,i;
+    cin>>t;
+    vector<llu>v;
+    while(t--)
+    {
+        cin>>n;
+        llu arr[n+9];
+        for(i=0; i<n; i++)
+        {
+            cin>>arr[i];
+        }
+        if(n==1)
+        {
+            cout<<1<<endl;
+            continue;
+        }
+        else if(n==2)
+        {
+            // v.push_back(arr[1]-arr[0]);
+            v.push_back(1);
+        }
+
+        if(n%2==1)
+        {
+            llu mn=1e18;
+            for( i=0; i<n; i++)
+            {
+                llu mx=1;
+                for(ll j=0; j<n; j++)
+                {
+                    if(j==i)j++;
+                    if(j+1>n)break;
+                    mx=max(mx,arr[j+1]-arr[j]);
+                    j++;
+                }
+                mn=min(mn,mx);
+            }
+            cout<<mn<<"\n";
+        }
+
+        else
+        {
+            for(i=1; i<n; i+=2)
+            {
+                v.push_back(arr[i]-arr[i-1]);
+            }
+            sort(v.rbegin(),v.rend());
+            cout<<v[0]<<endl;
+            v.clear();
+        }
+    }
+}
