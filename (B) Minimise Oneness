@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+  ios_base::sync_with_stdio(0);cin.tie(0);cout.tie();
+  ll t;
+  cin>>t;
+  ll n;
+  while(t--)
+  {
+      cin>>n;
+      if(n==1){
+        cout<<"0"<<endl;continue;
+      }
+      for(ll i=0; i<n-1; i++){
+        cout<<"0";
+      }
+      cout<<"1"<<endl;
+  }
+
+    return 0;
+}
+
