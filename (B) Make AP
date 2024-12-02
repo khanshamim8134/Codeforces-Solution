@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+    //ios_base::sync_with_stdio(0);cin.tie(0);cout.tie();
+    ll t,a,b,c;
+    cin>>t;
+    while(t--)
+    {
+        cin>>a>>b>>c;
+        bool ans = false;
+        ll r = b-c;
+        r += b;
+        if(r%a==0&&r>0){
+            ans  = true;
+        }
+        r = a+c;
+        r /=2;
+        if(r%b==0&&r>0&&(a+c)%2==0){
+            ans  = true;
+        }
+         r = a-b;
+        r = b-r;
+        if(r%c==0&&r>0){
+            ans  = true;
+        }
+        if(ans){
+            cout<<"YES"<<endl;
+        }else{
+           cout<<"NO"<<endl;
+        }
+
+    }
+
+    return 0;
+}
+
