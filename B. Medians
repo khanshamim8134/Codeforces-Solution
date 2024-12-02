@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+   //ios_base::sync_with_stdio(0);cin.tie(0);cout.tie();
+    ll t,n,k;
+    cin>>t;
+    while(t--){
+        cin>>n>>k;
+        if(n==1&&k==1){
+            cout<<1<<endl<<1<<endl;
+            continue;
+        }else if(k==1||k==n){
+            cout<<-1<<endl;
+            continue;
+        }
+        if(k%2==0){
+            cout<<3<<endl;
+            cout<<1<<" "<<k<<" "<<k+1<<endl;
+        }else{
+          cout<<3<<endl;
+          cout<<1<<" "<<k-1<<" "<<k+2<<endl;
+        }
+    }
+
+    return 0;
+}
+
