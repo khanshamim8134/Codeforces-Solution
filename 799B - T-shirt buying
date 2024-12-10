@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+  ios_base::sync_with_stdio(0);cin.tie(0);cout.tie();
+   ll n;
+   cin>>n;
+   ll p[n+1],a[n+1],b[n+1];
+    for(int i=1; i<=n; i++)cin>>p[i];
+    for(int i=1; i<=n; i++)cin>>a[i];
+    for(int i=1; i<=n; i++)cin>>b[i];
+
+    priority_queue<ll,vector<ll>,greater<ll>>q[5][5];
+    for(int i=1; i<=n; i++){
+        q[a[i]][b[i]].push(p[i]);
+    }
+    ll m;
+    cin>>m;
+    while(m--)
+    {
+        ll c;
+        ll f,b;
+        ll ans = INT_MAX;
+        cin>>c;
+        for(int i=0; i<=3; i++)
+        {
+            if(!q[c][i].empty() && q[c][i].top()<ans){
+                ans = q[c][i].top();
+                f = c;b = i;
+            }
+        }
+        for(int i=0; i<=3; i++)
+        {
+            if(!q[i][c].empty() && q[i][c].top()<ans){
+                ans = q[i][c].top();
+                f = i;b = c;
+            }
+        }
+        if(ans == INT_MAX){
+            ans = -1;
+        }else{
+          q[f][b].pop();
+        }
+        cout<<ans<<" ";
+    }
+    return 0;
+}
+
