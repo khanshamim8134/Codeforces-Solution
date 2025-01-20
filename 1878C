@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+  ios_base::sync_with_stdio(0);cin.tie(0);cout.tie();
+   ll tc,n,k,x;
+   cin>>tc;
+   while(tc--)
+   {
+       cin>>n>>k>>x;
+       ll r1 = (k*(k+1))/2;
+       ll r = n-k;
+       ll r2 = (r*(r+1))/2;
+       ll r3 = (n*(n+1))/2;
+       ll rr1 = (r3-r2);
+       if(r1>x||rr1<x){
+        cout<<"NO"<<endl;
+       }else{
+         cout<<"YES"<<endl;
+       }
+
+   }
+
+    return 0;
+}
+
