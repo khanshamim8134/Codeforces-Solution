@@ -1,0 +1,97 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long int ll;
+typedef unsigned long long int llu;
+typedef double dl;
+
+#define endl '\n'
+#define PI acos(-1)
+#define vi vector<int>
+#define vll vector<ll>
+#define vii vector<pair<int,int>>
+
+
+int main()
+{
+
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        string s;
+        cin>>s;
+        string str=s;
+        bool ans = true;
+        if(s.size()==1)
+        {
+            ans = false;
+        }
+        else if(s.size()==2)
+        {
+            if(s[0]!=s[1])
+            {
+                ans = false;
+            }
+        }
+        else if(s.size()==3)
+        {
+            ans = false;
+            if(s[0]!=s[1]&&s[0]!=s[2]&&s[1]!=s[2])
+            {
+                ans = true;
+            }
+            else if(s[0]==s[1]&&s[0]==s[2])
+            {
+                ans = true;
+                str.clear();
+                str+=s[0];
+                str+=s[1];
+            }
+            else if(s[0]==s[1])
+            {
+                ans = true;
+                str.clear();
+                str+=s[0];
+                str+=s[1];
+            }
+            else if(s[1]==s[2])
+            {
+                ans = true;
+                str.clear();
+                str+=s[1];
+                str+=s[2];
+            }
+
+        }
+        else
+        {
+            ans = false;
+            for(ll i=1; i+1<s.size(); i++)
+            {
+               if(s[i]==s[i-1]){
+                    ans = true;
+                    str.clear();
+                 str+=s[i];
+                 str+=s[i-1];
+                 break;
+               }
+               else if(s[i]!=s[i+1]&&s[i-1]!=s[i]&&s[i+1]!=s[i-1]){
+                   ans = true;
+                str.clear();
+                str+=s[i-1];
+                str+=s[i];
+                str+=s[i+1];break;
+               }
+            }
+        }
+            if(ans)
+            {
+                cout<<str<<endl;
+            }
+            else
+            {
+                cout<<-1<<endl;
+            }
+        }
+    }
