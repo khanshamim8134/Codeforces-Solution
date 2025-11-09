@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const ll mx=1000000;
+bool isprime[mx];
+void seieve(){
+       for(ll i=2; i*i<=mx; i++){
+        if(isprime[i]==false){
+            for(ll j=i*2; j<=mx; j+=i){
+                isprime[j]=true;
+            }
+        }
+       }
+}
+int main(){
+    seieve();
+    ll t,i,n,ans;
+    cin>>t;
+    while(t--){
+      cin>>n;
+      if(n==1){
+        cout<<1<<endl;
+      }
+      else if(isprime[n]==false){
+         ans = (n-1);
+         cout<<ans<<endl;
+      }else{
+        ll cnt=0;
+        ll n1=n;ans = n;
+        for(i=2; i*i<=n1; i++){
+            
+            if(n1%i==0){
+             cnt=0;
+            while(n1%i==0){
+                cnt++;
+                n1/=i; 
+            }
+            ans *=(i-1);
+            ans/=i;
+        }
+        }
+        if(n1>1){
+            ans*=(n1-1);
+            ans/=n1;
+        }
+        cout<<ans<<endl;
+      }
+    }
+    return 0;
+}
